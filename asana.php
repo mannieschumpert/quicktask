@@ -3,7 +3,7 @@
  * QuickTask: The Alfred Workflow for Asana
  *
  * Author: Mannie Schumpert http://mannieschumpert.com
- * Version: 2.1
+ * Version: 2.2
  */
 require('workflows.php');
 
