@@ -239,7 +239,7 @@
 	<key>createdby</key>
 	<string>Mannie Schumpert</string>
 	<key>description</key>
-	<string>Quickly add a task to an Asana, v2.1</string>
+	<string>Quickly add a task to an Asana, v2.2</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -538,7 +538,7 @@ $a-&gt;zone_filter("{query}");</string>
 				<key>script</key>
 				<string>set temp to "{query}"
 if temp is "" then
-	tell application "Alfred 2" to search "azone"
+	tell application "Alfred 3" to search "azone"
 end if</string>
 				<key>type</key>
 				<integer>6</integer>
@@ -623,7 +623,7 @@ $a-&gt;workspace_filter("{query}");</string>
 				<key>script</key>
 				<string>set temp to "{query}"
 if temp is "" then
-	tell application "Alfred 2" to search "anew"
+	tell application "Alfred 3" to search "anew"
 end if</string>
 				<key>type</key>
 				<integer>6</integer>

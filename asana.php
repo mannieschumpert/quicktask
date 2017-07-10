@@ -3,7 +3,7 @@
  * QuickTask: The Alfred Workflow for Asana
  *
  * Author: Mannie Schumpert http://mannieschumpert.com
- * Version: 2.1
+ * Version: 2.2
  */
 require('workflows.php');
 
@@ -33,7 +33,7 @@ class Asana {
 	 */
 	public function key($apikey){
 
-		exec("curl -u ".$apikey.": https://app.asana.com/api/1.0/users/me",$return);
+		exec('curl -H "Authorization: Bearer '.$apikey.'" https://app.asana.com/api/1.0/users/me',$return);
 		$return = json_decode($return[0],true);
 
 		if ($return['errors']):
@@ -108,7 +108,7 @@ class Asana {
 			exit;
 		endif;
 
-		exec("curl -u ".$apikey.": https://app.asana.com/api/1.0/users/me",$return);
+		exec('curl -H "Authorization: Bearer '.$apikey.'" https://app.asana.com/api/1.0/users/me',$return);
 		$return = json_decode($return[0],true);
 		$settings['default'] = $return['data']['email'];
 
@@ -365,7 +365,7 @@ class Asana {
 			$d = ' -d "workspace='.$settings['workspaces'][$new_project_workspace].'" -d "name='.$query.'"';
 
 			// Send the API call
-			exec( 'curl -u '.$settings['apikey'].': https://app.asana.com/api/1.0/projects' . $d, $return);
+			exec('curl -H "Authorization: Bearer '.$settings['apikey'].'" https://app.asana.com/api/1.0/projects' . $d, $return);
 			$return = json_decode($return[0],true);
 
 			// Check for errors
@@ -421,7 +421,7 @@ class Asana {
 	private function get_workspaces($apikey){
 
 		// Get workspaces from Asana API
-		exec( 'curl -u '.$apikey.': https://app.asana.com/api/1.0/workspaces', $return);
+		exec('curl -H "Authorization: Bearer '.$apikey.'" https://app.asana.com/api/1.0/workspaces', $return);
 		$return = json_decode($return[0],true);
 		$data = $return['data'];
 
@@ -455,7 +455,7 @@ class Asana {
 		$projects = array();
 		foreach($workspaces as $workspace => $workspace_id ){
 
-			exec( 'curl -u '.$apikey.': https://app.asana.com/api/1.0/workspaces/'.$workspace_id.'/projects?archived=false', $return);
+			exec('curl -H "Authorization: Bearer '.$apikey.'" https://app.asana.com/api/1.0/workspaces/'.$workspace_id.'/projects?archived=false', $return);
 			
 			$return = json_decode($return[0],true);
 			$return = $return['data'];
@@ -672,7 +672,7 @@ class Asana {
 		}
 
 		// Send the API call
-		exec( 'curl -u '.$apikey.': https://app.asana.com/api/1.0/tasks' . $d, $return);
+		exec('curl -H "Authorization: Bearer '.$apikey.'" https://app.asana.com/api/1.0/tasks' . $d, $return);
 		$return = json_decode($return[0],true);
 
 		// Check for errors
