@@ -668,7 +668,7 @@ class Asana {
 		// Add data tags
 		$d = '';
 		foreach ($data as $key => $value){
-			$d .= ' -d "'.$key.'='.$value.'"';
+			$d .= ' -d "'.$key.'='.urlencode($value).'"';
 		}
 
 		// Send the API call
