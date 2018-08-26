@@ -250,11 +250,19 @@
 			<key>config</key>
 			<dict>
 				<key>escaping</key>
-				<integer>38</integer>
+				<integer>0</integer>
 				<key>script</key>
-				<string>require('asana.php');
+				<string>&lt;?php
+require('asana.php');
 $a = new Asana();
-$a-&gt;task('{query}');</string>
+
+$a-&gt;task($argv[1]);
+
+?&gt;</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
 				<key>type</key>
 				<integer>1</integer>
 			</dict>
@@ -263,7 +271,7 @@ $a-&gt;task('{query}');</string>
 			<key>uid</key>
 			<string>C3332AFF-F107-4CAE-956B-2DB6499C7854</string>
 			<key>version</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
