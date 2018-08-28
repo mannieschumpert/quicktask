@@ -497,12 +497,10 @@ class Asana {
 		// If there's no delimeters: task only
 		elseif ( count($query_arr) === 1 ) {
 			// check for default assignee - maybe conditional if target is workspace or project
-			if(!$settings['default']){
-				echo $this->errors['no_default'];
-				exit;
+			if($settings['default'] && $settings['default'] != '-'){
+				$parsed_query['assignee'] = $settings['default'];
 			}
 
-			$parsed_query['assignee'] = $settings['default'];
 			$parsed_query['name'] = $query;
 		} 
 		// Two delimiters: task + assignee + due date
@@ -580,9 +578,12 @@ class Asana {
 						$due_date = date('Y-m-d', strtotime('next '.$query_arr[1]));
 					}
 				}
+
 				$parsed_query['due_on'] = $due_date;
-				$parsed_query['assignee'] = $settings['default'];
-				
+
+				if ($settings['default'] && $settings['default'] != '-')
+					$parsed_query['assignee'] = $settings['default'];
+
 			} else {
 
 				$assignee = $settings['people'][$query_arr[1]];
