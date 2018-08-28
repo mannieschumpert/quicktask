@@ -76,7 +76,7 @@ The new project is automatically added to your project list. You do _not_ need t
 
 <td class="keyword">adefault</td>
 
-<td>Enter the email for the default assignee.  
+<td>Enter the email for the default assignee. You can enter '-' (without single quotes) to not assign issue to anybody.
 (Not usually needed)</td>
 
 </tr>
