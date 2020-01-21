@@ -463,7 +463,7 @@ class Asana {
 			foreach ($return as $project){
 
 				$name = $project['name'];
-				$project_id = $project['id'];
+				$project_id = $project['gid'];
 				
 				$projects[$name] = array();
 				$projects[$name]['gid'] = "$project_id";
