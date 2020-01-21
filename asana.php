@@ -466,7 +466,7 @@ class Asana {
 				$project_id = $project['gid'];
 				
 				$projects[$name] = array();
-				$projects[$name]['gid'] = "$project_id";
+				$projects[$name]['id'] = "$project_id";
 				$projects[$name]['workspace'] = "$workspace";
 				$projects[$name]['workspace_id'] = "$workspace_id";
 				
