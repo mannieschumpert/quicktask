@@ -38,8 +38,8 @@ class Workflows {
 			$this->bundle = basename( $this->path );
 		endif;
 
-		$this->cache = $this->home. "/Library/Caches/com.runningwithcrayons.Alfred-3/Workflow Data/".$this->bundle;
-		$this->data  = $this->home. "/Library/Application Support/Alfred 3/Workflow Data/".$this->bundle;
+		$this->cache = $this->home. "/Library/Caches/com.runningwithcrayons.Alfred/Workflow Data/".$this->bundle;
+		$this->data  = $this->home. "/Library/Application Support/Alfred/Workflow Data/".$this->bundle;
 
 		if ( !file_exists( $this->cache ) ):
 			exec("mkdir '".$this->cache."'");
